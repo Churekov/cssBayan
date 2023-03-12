@@ -31,6 +31,8 @@ html {
     color: white;
     margin-bottom: 1.5rem;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 input {
     appearance: none;
@@ -60,22 +62,24 @@ input:hover ~ .accordion_content {
         height: 100%;
     }
 }
-.wrapper:hover > .accordion_container > .accordion_title > span {
-    background-color: red;
+span {
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url(./img/arrow.svg);
-    background-repeat: no-repeat;
-    background-position: center;
 }
-input:checked ~ .accordion_title > span {
-    background-color: red;
-    display: inline-block;
+.arrow {
+    background-color: #fff;
     width: 30px;
     height: 30px;
     background-image: url(./img/arrow.svg);
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 50%;
+    display: none;
+    transition: .8s;
+}
+.wrapper:hover > .accordion_container > .accordion_title > .arrow {
+        display: inline-block;
+}
+input:checked ~ .accordion_title > .arrow {
+    display: inline-block;
     transform: rotate(180deg);
 }
