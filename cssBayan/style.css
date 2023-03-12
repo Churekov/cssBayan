@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+.wrapper {
+    background-color: #5e5b5b;
+    width: 50%;
+    padding: 1.5rem;
+    margin: 0 auto;
+    height: auto;
+    font-size: 3rem;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+.accordion_container {
+    max-width: 50rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    /* cursor: pointer; */
+}
+.accordion_title {
+    cursor: pointer;
+    color: white;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    appearance: none;
+}
+.accordion_content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all .4s;
+}
+.accordion_content > img {
+    width: 45rem;
+    height: 35rem;
+}
+@media screen and (min-width: 820px) {
+    input:hover ~ .accordion_content {
+        max-height: 35rem;
+    }
+    .wrapper:hover > .accordion_container > .accordion_title > .arrow {
+        display: inline-block;
+    }
+.accordion_container:hover > .accordion_content {
+    max-height: 35rem;
+    }
+.accordion_container:hover > .accordion_title > .arrow {
+    transform: rotate(180deg);
+}
+}
+input:checked ~ .accordion_content {
+    max-height: 35rem;
+}
+input:checked ~ .accordion_title > .arrow {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        font-size: 2.5rem;
+    }
+    .accordion_content > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .arrow {
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 666px) {
+    .wrapper {
+        font-size: 2rem;
+        width: 45rem;
+    }
+    .arrow {
+        opacity: 0;
+    }
+}
+span {
+    display: inline-block;
+}
+.arrow {
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    background-image: url(./img/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    display: none;
+    transition: .8s;
+}
